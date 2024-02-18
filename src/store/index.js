@@ -27,7 +27,14 @@ export const store = reactive({
 
         .then((resp) => {
             this.allList = resp.data.results;
-            this.filmList = this.allList.filter((type)=> type.media_type == 'movie'); 
+            this.filmList = this.allList.filter((type)=> type.media_type == 'movie')
+            .map((result) => ({
+                id: result.id,
+                media_type: result.media_type,
+                original_language: result.original_language,
+                title: result.original_title,
+                voto: result.vote_average,
+            }));
             this.tvList = this.allList.filter((type)=> type.media_type == 'tv'); 
 
 

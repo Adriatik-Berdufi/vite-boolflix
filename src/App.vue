@@ -1,6 +1,8 @@
 <script>
 import{ store } from './store';
 import AppSearch from './components/AppSearch.vue';
+import AppHeader from './components/AppHeader.vue';
+
 import axios from 'axios';
  
 export default {
@@ -13,7 +15,7 @@ export default {
   },
 
 
-  components: { AppSearch },
+  components: { AppSearch, AppHeader },
 
 };
 
@@ -21,9 +23,8 @@ export default {
 
 
 <template>
+  <AppHeader/>
   <div class="container mt-5">
-    
-    <AppSearch/>
     <div class="d-flex">
       <ul>
         <span>film</span>

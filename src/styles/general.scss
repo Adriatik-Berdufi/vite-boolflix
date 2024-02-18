@@ -2,3 +2,12 @@
 @use './partials/mixins' as *;
 @use './partials/variables' as *;
 @import "bootstrap/scss/bootstrap";
+*{  
+    ul{
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        list-style: none;
+    }
+}
