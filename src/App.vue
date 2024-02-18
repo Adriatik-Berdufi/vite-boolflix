@@ -1,6 +1,6 @@
 <script>
 import{ store } from './store';
-import AppTest from './components/AppTest.vue';
+import AppSearch from './components/AppSearch.vue';
 import axios from 'axios';
  
 export default {
@@ -13,7 +13,7 @@ export default {
   },
 
 
-  components: { AppTest },
+  components: { AppSearch },
 
 };
 
@@ -22,22 +22,24 @@ export default {
 
 <template>
   <div class="container mt-5">
-    <div class=" d-flex">
-      <input type="text" class="form-control" v-model="store.search">
-      <button @click="store.searchform()" class="btn btn-primary">cerca</button>
-      <button @click="store.nextPage()" class="btn btn-success">next page</button>
+    
+    <AppSearch/>
+    <div class="d-flex">
+      <ul>
+        <span>film</span>
+        <li v-for="film in store.filmList">
+          <span class="text-primary">tittolo film : {{ film.title }} </span>
+        </li>
+      </ul>
+      <ul>
+        <span>serie Tv</span>
+        <li v-for="film in store.tvList">
+          <span  class="text-success">tittolo serie : {{ film.original_name }} </span>
+        </li>
+      </ul>
     </div>
-
-    <ul>
-      
-      <li v-for="film in store.filmList">
-        <span class="text-primary" v-if="film.media_type == 'movie'">tittolo film : {{ film.title }} tipo:{{film.media_type}}</span>
-        <span class="text-success" v-if="film.media_type == 'tv'">tittolo serie : {{ film.original_name }} tipo:{{film.media_type}}</span>
-
-      </li>
-    </ul>
   </div>
-  <AppTest/>
+ 
   
 </template>
 

@@ -10,6 +10,8 @@ export const store = reactive({
     currentPage:1,
     search:'fast',
     filmList:[],
+    tvList:[],
+    allList:[],
     nextPage(){
         this.currentPage ++;
         console.log('CURRENTPAGE: '+this.currentPage);
@@ -23,11 +25,16 @@ export const store = reactive({
             page:this.currentPage
         }})
 
-        .then((resp) => {  
-        this.filmList = resp.data.results;
-        console.log(resp.data.results);
-        console.log(resp.data.total_pages);
-        console.log(resp.data.total_results);
+        .then((resp) => {
+            this.allList = resp.data.results;
+            this.filmList = this.allList.filter((type)=> type.media_type == 'movie'); 
+            this.tvList = this.allList.filter((type)=> type.media_type == 'tv'); 
+
+
+            
+            console.log(resp.data.results);
+            console.log(resp.data.total_pages);
+            console.log(resp.data.total_results);
 
 
         console.log(this.filmList);
