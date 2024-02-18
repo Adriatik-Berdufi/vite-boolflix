@@ -2,6 +2,7 @@
 import{ store } from './store';
 import AppSearch from './components/AppSearch.vue';
 import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 import axios from 'axios';
  
@@ -15,7 +16,7 @@ export default {
   },
 
 
-  components: { AppSearch, AppHeader },
+  components: { AppSearch, AppHeader, AppMain },
 
 };
 
@@ -24,22 +25,8 @@ export default {
 
 <template>
   <AppHeader/>
-  <div class="container mt-5">
-    <div class="d-flex">
-      <ul>
-        <span>film</span>
-        <li v-for="film in store.filmList">
-          <span class="text-primary">tittolo film : {{ film.title }} </span>
-        </li>
-      </ul>
-      <ul>
-        <span>serie Tv</span>
-        <li v-for="film in store.tvList">
-          <span  class="text-success">tittolo serie : {{ film.original_name }} </span>
-        </li>
-      </ul>
-    </div>
-  </div>
+  
+  <AppMain/>
  
   
 </template>
