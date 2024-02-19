@@ -36,7 +36,7 @@ export const store = reactive({
                 voto: result.vote_average,
             }));
             this.tvList = this.allList.filter((type)=> type.media_type == 'tv'); 
-
+            // To do normalizazzione anche delle serie tv
 
             
             console.log(resp.data.results);

@@ -1,5 +1,6 @@
 <script>
 import { store } from "../store";
+import AppCard from "./AppCard.vue";
 export default {
     data() {
     return {
@@ -7,24 +8,27 @@ export default {
         
     }
     },
+    components:{AppCard}
 };
 
 </script>
 <template>
     <div class="container mt-5">
+        
         <section class="movie">
             <span>film</span>
             <ul>
                 <li v-for="film in store.filmList">
-                    <span class="text-primary">tittolo film : {{ film.title }} </span>
+                    <AppCard :filmData="film"/>
                 </li>
             </ul>
         </section>
             <section class="serie-tv">
             <span>serie Tv</span>
             <ul>
-                <li v-for="film in store.tvList">
-                    <span  class="text-success">tittolo serie : {{ film.original_name }} </span>
+                <li v-for="serie in store.tvList">
+                    <AppCard :filmData="serie"/>
+                    <!-- <span  class="text-success">tittolo serie : {{ film.original_name }} </span> -->
                 </li>
             </ul>
         </section>
